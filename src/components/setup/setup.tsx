@@ -52,8 +52,6 @@ function Setup() {
   };
 
   const fetchQuestions = () => {
-    // تغییرات زیر در این قسمت
-    // بررسی وجود داده‌های ضروری (توکن، دسته‌بندی و سختی)
     if (
       !token ||
       !selectedCategory ||
@@ -63,7 +61,6 @@ function Setup() {
       console.log("Missing required data or invalid question count");
       return; 
     }
-    console.log("Fetching questions...");
     axios
       .get(
         `https://opentdb.com/api.php?amount=${questionCount}&category=${selectedCategory}&difficulty=${selectedDifficality}&token=${token}`
