@@ -14,10 +14,6 @@ function Setup() {
   const [token, setToken] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  const goToQuizPage = () => {
-    navigate("/quiz");
-  };
-
   useEffect(() => {
     const fetchTokenAndCategories = async () => {
       try {
@@ -36,14 +32,12 @@ function Setup() {
           categoryResponse.data.trivia_categories
         );
 
-        // بررسی انتخاب پیش‌فرض برای سختی
         setDifficulity(["easy", "medium", "hard"]);
 
-        // اگر نیاز به مقدار پیش‌فرض داریم برای `selectedCategory` و `selectedDifficality`
         setSelectedCategory(
           categoryResponse.data.trivia_categories[0]?.id || ""
-        ); // مقدار پیش‌فرض
-        setSelectedDifficality("easy"); // مقدار پیش‌فرض
+        );
+        setSelectedDifficality("easy"); 
       } catch (err) {
         console.error(err);
       }
@@ -67,7 +61,7 @@ function Setup() {
       questionCount <= 0
     ) {
       console.log("Missing required data or invalid question count");
-      return; // اطمینان از اینکه تعداد سوالات بیشتر از صفر باشد
+      return; 
     }
     console.log("Fetching questions...");
     axios

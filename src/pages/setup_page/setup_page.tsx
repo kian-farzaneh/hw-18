@@ -1,5 +1,3 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
 import Setup from "../../components/setup/setup";
 
 function SetupPage() {
